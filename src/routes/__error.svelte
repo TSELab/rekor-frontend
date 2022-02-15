@@ -1,1 +1,1 @@
-<p>You are not supposed to be here!!</p>
+<h1 class="text-9xl font-bold">IN ERROR PAGE</h1>
