@@ -31,7 +31,10 @@
 			>
 		</button>
 	</div>
-	<div class="w-full block flex-grow text-black text-md lg:flex lg:items-center lg:w-auto" class:hidden>
+	<div
+		class="w-full block flex-grow text-black text-md lg:flex lg:items-center lg:w-auto"
+		class:hidden
+	>
 		<div class="lg:flex-grow">
 			<a href="/" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-aged mr-6">
 				Monitor
@@ -67,28 +70,28 @@
 
 <!-- Footer -->
 <footer class="shrink-0 m-0">
-    <div class="bg-rush text-black px-16 lg:px-28 pt-10 pb-10">
-        <h2 class="text-3xl font-bold">Partners</h2>
-    </div>
-    <div class="bg-steel text-white text-lg px-16 lg:px-24 pt-10 pb-12">
-        <ul>
-            <li class="my-3">
-                <a href="/" class="hover:text-dust">Monitor</a>
-            </li>
-            <li class="my-3">
-                <a href="/about" class="hover:text-dust">About</a>
-            </li>
-            <li class="my-3">
-                <a href="/people" class="hover:text-dust">People</a>
-            </li>
-            <li class="my-3">
-                <a
-                    href="https://github.com/alanssitis/rekor-monitor"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="hover:text-dust">Source</a
-                >
-            </li>
-        </ul>
-    </div>
+	<div class="bg-rush text-black px-16 lg:px-28 pt-10 pb-10">
+		<h2 class="text-3xl font-bold">Partners</h2>
+	</div>
+	<div class="bg-steel text-white text-lg px-16 lg:px-24 pt-10 pb-12">
+		<ul>
+			<li class="my-3">
+				<a href="/" class="hover:text-dust">Monitor</a>
+			</li>
+			<li class="my-3">
+				<a href="/about" class="hover:text-dust">About</a>
+			</li>
+			<li class="my-3">
+				<a href="/people" class="hover:text-dust">People</a>
+			</li>
+			<li class="my-3">
+				<a
+					href="https://github.com/alanssitis/rekor-monitor"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="hover:text-dust">Source</a
+				>
+			</li>
+		</ul>
+	</div>
 </footer>
