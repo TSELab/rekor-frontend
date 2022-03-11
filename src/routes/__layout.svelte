@@ -1,6 +1,49 @@
 <script>
 	import '../app.css';
 	let hidden = false;
+
+	let partners = [
+		{
+			alt: 'Chainguard',
+			src: 'partners/chainguard.svg',
+			href: 'https://chainguard.dev/'
+		},
+		{
+			alt: 'Cisco',
+			src: 'partners/cisco.png',
+			href: 'https://www.cisco.com/'
+		},
+		{
+			alt: 'Google',
+			src: 'partners/googlelogo.png',
+			href: 'https://about.google/'
+		},
+		{
+			alt: 'HP Enterprise',
+			src: 'partners/hpe.png',
+			href: 'https://www.hpe.com/'
+		},
+		{
+			alt: 'Linux Foundation',
+			src: 'partners/linuxfoundationlogo.png',
+			href: 'https://linuxfoundation.org/'
+		},
+		{
+			alt: 'Purdue University',
+			src: 'partners/purdueunilogo.png',
+			href: 'https://www.purdue.edu/'
+		},
+		{
+			alt: 'Red Hat',
+			src: 'partners/redhatlogo.png',
+			href: 'https://www.redhat.com/'
+		},
+		{
+			alt: 'VMware',
+			src: 'partners/vmware.png',
+			href: 'https://www.vmware.com/'
+		}
+	];
 </script>
 
 <!-- Navbar -->
@@ -57,8 +100,10 @@
 				href="https://github.com/alanssitis/rekor-monitor"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-aged">Source</a
+				class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-aged"
 			>
+				Source
+			</a>
 		</div>
 	</div>
 </nav>
@@ -72,6 +117,15 @@
 <footer class="shrink-0 m-0">
 	<div class="bg-rush text-black px-16 lg:px-28 pt-10 pb-10">
 		<h2 class="text-3xl font-bold">Partners</h2>
+		<div class="grid items-center grid-cols-2 sm:grid-cols-4 xl:grid-cols-8 gap-1 4xl:gap-2 m-2">
+			{#each partners as { alt, src, href }, i}
+				<div class="m-4">
+					<a {href} target="_blank" rel="noopener noreferrer">
+						<img id={'partner' + i} {alt} {src} />
+					</a>
+				</div>
+			{/each}
+		</div>
 	</div>
 	<div class="bg-steel text-white text-lg px-16 lg:px-24 pt-10 pb-12">
 		<ul>
