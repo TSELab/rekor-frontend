@@ -1,4 +1,7 @@
 <script>
+    let today = new Date();
+    let height = 1619055;
+    let hash = "e93921fa451f164857a29f06e2dac1c39b65c0116f21eb241e65f065690690d8";
 	let test_graphs = [
 		{
 			section: 'Section 1',
@@ -50,33 +53,30 @@
 
 <!-- Top Section -->
 <div
-	class="grid grid-cols-1 2xl:grid-cols-2 gap-1 lg:gap-4 2xl:gap-8 lg:gap-24 p-8 sm:p-12 md:p-16 lg:p-20 xl:p-24"
+	class="grid grid-cols-1 2xl:grid-cols-2 gap-4 lg:gap-6 2xl:gap-8 lg:gap-24 p-8 sm:p-12 md:p-16 lg:p-20 xl:p-24"
 >
 	<div class="flex flex-col px-0 xl:px-8">
-		<h1 class="text-5xl sm:text-8xl text-center font-bold">Rekor Monitor</h1>
-		<p class="text-lg m-2 md:m-4 lg:m-8">
+		<h1 class="text-4xl sm:text-7xl text-center font-bold">Rekor Monitor</h1>
+		<p class="text-lg sm:text-3xl grow m-2 md:m-4 lg:m-8">
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
 			labore et dolore magna aliqua. Tortor pretium viverra suspendisse potenti nullam ac tortor
 			vitae purus. Est ante in nibh mauris. Vitae ultricies leo integer malesuada nunc vel risus
 			commodo viverra. Non quam lacus suspendisse faucibus interdum. Aenean vel elit scelerisque
 			mauris pellentesque pulvinar pellentesque habitant. Tellus in hac habitasse platea dictumst
 			vestibulum.
-			<br />
-			Nulla facilisi nullam vehicula ipsum a arcu. Phasellus vestibulum lorem sed risus ultricies tristique
-			nulla aliquet. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Velit scelerisque
-			in dictum non consectetur a erat nam at. Semper eget duis at tellus at urna condimentum. At ultrices
-			mi tempus imperdiet nulla malesuada pellentesque. Imperdiet sed euismod nisi porta. Vel pharetra
-			vel turpis nunc eget. Feugiat scelerisque varius morbi enim nunc. Eu sem integer vitae justo eget
-			magna. Eget egestas purus viverra accumsan in nisl nisi. Lorem sed risus ultricies tristique nulla
-			aliquet. Porttitor rhoncus dolor purus non enim praesent elementum facilisis leo. Dui ut ornare
-			lectus sit amet est. Commodo quis imperdiet massa tincidunt nunc pulvinar sapien et.
 		</p>
 		<div
-			class="bg-rush rounded-lg bottom-0 text-4xl lg:text-5xl flex flex-col sm:flex-row px-6 lg:px-8 py-8 m-4"
+			class="bg-rush rounded-lg bottom-0 text-3xl lg:text-4xl flex flex-col sm:flex-row px-6 lg:px-8 py-8 m-4"
 		>
 			<h3 class="text-black font-bold">Signatures:</h3>
-			<h3 class="text-black font-bold grow text-right">1 000 000</h3>
+            <h3 class="text-black font-bold grow text-right">{height.toLocaleString()}</h3>
 		</div>
+        <p class="text-steel text-sm sm:text-xl text-right sm:text-lg px-6 m-2">
+            Hash: {hash.slice(0,32)}
+        </p>
+        <p class="text-steel text-xs sm:text-xl text-right sm:text-lg px-6 m-2">
+            Last updated: {today.toUTCString()}
+        </p>
 	</div>
 	<div
 		class="relative w-full bg-field rounded-xl flex justify-center items-center"
