@@ -65,18 +65,18 @@
 			mauris pellentesque pulvinar pellentesque habitant. Tellus in hac habitasse platea dictumst
 			vestibulum.
 		</p>
+        <p class="text-steel text-xs sm:text-xl text-right sm:text-lg px-6 m-2">
+            Last updated: {today.toUTCString()}
+        </p>
+        <p class="text-steel text-sm sm:text-xl text-right sm:text-lg px-6 m-2">
+            Hash: {hash.slice(0,32)}
+        </p>
 		<div
 			class="bg-rush rounded-lg bottom-0 text-3xl lg:text-4xl flex flex-col sm:flex-row px-6 lg:px-8 py-8 m-4"
 		>
 			<h3 class="text-black font-bold">Signatures:</h3>
             <h3 class="text-black font-bold grow text-right">{height.toLocaleString()}</h3>
 		</div>
-        <p class="text-steel text-sm sm:text-xl text-right sm:text-lg px-6 m-2">
-            Hash: {hash.slice(0,32)}
-        </p>
-        <p class="text-steel text-xs sm:text-xl text-right sm:text-lg px-6 m-2">
-            Last updated: {today.toUTCString()}
-        </p>
 	</div>
 	<div
 		class="relative w-full bg-field rounded-xl flex justify-center items-center"

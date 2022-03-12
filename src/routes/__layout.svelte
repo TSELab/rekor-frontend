@@ -116,8 +116,8 @@
 <!-- Footer -->
 <footer class="shrink-0 m-0">
 	<div class="bg-rush text-black px-16 lg:px-28 py-20">
-		<h2 class="text-3xl font-bold">Partners</h2>
-		<div class="grid items-center grid-cols-2 sm:grid-cols-4 xl:grid-cols-8 gap-1 xl:gap-2 m-2">
+		<h2 class="text-3xl font-bold mb-2 lg:mb-4">Partners</h2>
+		<div class="grid items-center grid-cols-2 sm:grid-cols-4 xl:grid-cols-8 gap-4 m-2">
 			{#each partners as { alt, src, href }, i}
 				<div class="p-1 md:p-2 2xl:p-4">
 					<a {href} target="_blank" rel="noopener noreferrer">
