@@ -1,54 +1,22 @@
 <script>
-    let today = new Date();
-    let height = 1619055;
-    let hash = "e93921fa451f164857a29f06e2dac1c39b65c0116f21eb241e65f065690690d8";
-	let test_graphs = [
-		{
-			section: 'Section 1',
-			graphs: [
-				{
-					title: 'Title 1.1',
-					plot: 'plot 1',
-					text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-				},
-				{
-					title: 'Title 1.2',
-					plot: 'plot 2',
-					text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-				}
-			]
-		},
-		{
-			section: 'Section 2',
-			graphs: [
-				{
-					title: 'Title 2.1',
-					plot: 'plot 3',
-					text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-				},
-				{
-					title: 'Title 2.2',
-					plot: 'plot 4',
-					text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-				}
-			]
-		},
-		{
-			section: 'Section 3',
-			graphs: [
-				{
-					title: 'Title 3.1',
-					plot: 'plot 5',
-					text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-				},
-				{
-					title: 'Title 3.2',
-					plot: 'plot 6',
-					text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-				}
-			]
+	import { onMount } from 'svelte';
+	import { getNewestEntry } from '../api/entries';
+
+	let newestEntry = {};
+
+	onMount(async () => {
+		try {
+			const res = await getNewestEntry();
+			newestEntry = res;
+		} catch (error) {
+			console.error(error);
 		}
-	];
+	});
+
+	let today = new Date();
+	let height = 1619055;
+	let hash = 'e93921fa451f164857a29f06e2dac1c39b65c0116f21eb241e65f065690690d8';
+	let test_graphs = [];
 </script>
 
 <!-- Top Section -->
@@ -65,17 +33,17 @@
 			mauris pellentesque pulvinar pellentesque habitant. Tellus in hac habitasse platea dictumst
 			vestibulum.
 		</p>
-        <p class="text-steel text-xs sm:text-xl text-right sm:text-lg px-6 m-2">
-            Last updated: {today.toUTCString()}
-        </p>
-        <p class="text-steel text-sm sm:text-xl text-right sm:text-lg px-6 m-2">
-            Hash: {hash.slice(0,32)}
-        </p>
+		<p class="text-steel text-xs sm:text-xl text-right sm:text-lg px-6 m-2">
+			Last updated: {today.toUTCString()}
+		</p>
+		<p class="text-steel text-sm sm:text-xl text-right sm:text-lg px-6 m-2">
+			Hash: {hash.slice(0, 32)}
+		</p>
 		<div
 			class="bg-rush rounded-lg bottom-0 text-3xl lg:text-4xl flex flex-col sm:flex-row px-6 lg:px-8 py-8 m-4"
 		>
 			<h3 class="text-black font-bold">Signatures:</h3>
-            <h3 class="text-black font-bold grow text-right">{height.toLocaleString()}</h3>
+			<h3 class="text-black font-bold grow text-right">{newestEntry.idx}</h3>
 		</div>
 	</div>
 	<div
