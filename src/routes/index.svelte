@@ -1,16 +1,20 @@
 <script>
 	import { onMount } from 'svelte';
-	import { getNewestEntry } from '../api/entries';
 
 	let newestEntry = {};
+	const entries_endpoint = 'localhost:5000/entries';
 
 	onMount(async () => {
-		try {
-			const res = await getNewestEntry();
-			newestEntry = res;
-		} catch (error) {
-			console.error(error);
-		}
+		fetch(entries_endpoint).then((resp) => {
+			resp
+				.json()
+				.then((d) => {
+					let data = d;
+				})
+				.catch((err) => {
+					console.error(err);
+				});
+		});
 	});
 
 	let today = new Date();
