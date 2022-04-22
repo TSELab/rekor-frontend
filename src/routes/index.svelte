@@ -1,26 +1,24 @@
 <script>
 	import { onMount } from 'svelte';
 
+	const entries_endpoint = 'https://monitor.tsel.purdue.wtf/api/';
+
 	let newestEntry = {};
-	const entries_endpoint = 'localhost:5000/entries';
+	let test_graphs = [];
 
 	onMount(async () => {
-		fetch(entries_endpoint).then((resp) => {
+		fetch(entries_endpoint + "entries").then((resp) => {
 			resp
 				.json()
-				.then((d) => {
-					let data = d;
+				.then((data) => {
+					newestEntry = data;
+					console.log(newestEntry);
 				})
 				.catch((err) => {
 					console.error(err);
 				});
 		});
 	});
-
-	let today = new Date();
-	let height = 1619055;
-	let hash = 'e93921fa451f164857a29f06e2dac1c39b65c0116f21eb241e65f065690690d8';
-	let test_graphs = [];
 </script>
 
 <!-- Top Section -->
@@ -38,16 +36,16 @@
 			vestibulum.
 		</p>
 		<p class="text-steel text-xs sm:text-xl text-right sm:text-lg px-6 m-2">
-			Last updated: {today.toUTCString()}
+			Last updated: {newestEntry ? newestEntry.timeEpoch : ''}
 		</p>
 		<p class="text-steel text-sm sm:text-xl text-right sm:text-lg px-6 m-2">
-			Hash: {hash.slice(0, 32)}
+			Hash: {newestEntry ? newestEntry.hashVal : ''}
 		</p>
 		<div
 			class="bg-rush rounded-lg bottom-0 text-3xl lg:text-4xl flex flex-col sm:flex-row px-6 lg:px-8 py-8 m-4"
 		>
 			<h3 class="text-black font-bold">Signatures:</h3>
-			<h3 class="text-black font-bold grow text-right">{newestEntry.idx}</h3>
+			<h3 class="text-black font-bold grow text-right">{newestEntry ? newestEntry.idx : ''}</h3>
 		</div>
 	</div>
 	<div
