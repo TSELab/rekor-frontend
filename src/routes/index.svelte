@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 
-	const entries_endpoint = 'https://monitor.tsel.purdue.wtf/api/';
+	const entries_endpoint = 'http://localhost:443/api/';
 
 	let newestEntry = {};
 	let test_graphs = [];
@@ -12,7 +12,6 @@
 				.json()
 				.then((data) => {
 					newestEntry = data;
-					console.log(newestEntry);
 				})
 				.catch((err) => {
 					console.error(err);
@@ -35,17 +34,14 @@
 			mauris pellentesque pulvinar pellentesque habitant. Tellus in hac habitasse platea dictumst
 			vestibulum.
 		</p>
-		<p class="text-steel text-xs sm:text-xl text-right sm:text-lg px-6 m-2">
-			Last updated: {newestEntry ? newestEntry.timeEpoch : ''}
-		</p>
 		<p class="text-steel text-sm sm:text-xl text-right sm:text-lg px-6 m-2">
-			Hash: {newestEntry ? newestEntry.hashVal : ''}
+        Hash: {newestEntry.hashVal ? newestEntry.hashVal.slice(0, 32) : newestEntry.hashVal}
 		</p>
 		<div
 			class="bg-rush rounded-lg bottom-0 text-3xl lg:text-4xl flex flex-col sm:flex-row px-6 lg:px-8 py-8 m-4"
 		>
 			<h3 class="text-black font-bold">Signatures:</h3>
-			<h3 class="text-black font-bold grow text-right">{newestEntry ? newestEntry.idx : ''}</h3>
+			<h3 class="text-black font-bold grow text-right">{newestEntry.idx}</h3>
 		</div>
 	</div>
 	<div
