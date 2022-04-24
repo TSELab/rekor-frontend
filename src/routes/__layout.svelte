@@ -140,7 +140,7 @@
 			</li>
 			<li class="my-3">
 				<a
-					href="https://github.com/alanssitis/rekor-monitor"
+					href="https://github.com/alanssitis/rekor-website"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="hover:text-dust">Source</a

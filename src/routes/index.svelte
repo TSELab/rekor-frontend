@@ -1,13 +1,13 @@
 <script>
 	import { onMount } from 'svelte';
 
-	const entries_endpoint = 'http://localhost:443/api/';
+	const api_endpoint = import.meta.env.VITE_MONITOR_API;
 
 	let newestEntry = {};
 	let test_graphs = [];
 
 	onMount(async () => {
-		fetch(entries_endpoint + "entries").then((resp) => {
+		fetch(api_endpoint + "entries").then((resp) => {
 			resp
 				.json()
 				.then((data) => {

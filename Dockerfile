@@ -1,4 +1,6 @@
 FROM docker.io/library/node:16.14.0 AS build
+ARG VITE_MONITOR_API
+ENV VITE_MONITOR_API $VITE_MONITOR_API
 
 WORKDIR /app
 
